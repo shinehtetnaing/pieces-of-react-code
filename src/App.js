@@ -1,23 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+
+// containment for its children (DeleteButton)
+const Button = ({children, backgroundColor}) => {
+  return <button style={{ backgroundColor }}>{children}</button>
+};
+
+const Alert = ({children}) => {
+  return (
+    <>
+      <div className='Overlay' />
+      <div className='Alert'>{children}</div>
+    </>
+  )
+};
+
+// specialization for its Button Component
+// special case of Button
+const DeleteButton = () => {
+  return <Button backgroundColor='red'>Delete</Button>
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <header>Little Lemon Restaurant</header>
+      <Alert>
+        <h4>Delete Account</h4>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Are you sure you want to proceed? You will miss all your delicious recipes!
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <DeleteButton />
+      </Alert>
     </div>
   );
 }
