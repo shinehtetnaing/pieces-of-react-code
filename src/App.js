@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 const withMousePosition = (WrappedComponent) => {
   return (props) => {
 
-    const [mousePositioin, setMousePosition] = useState({
+    const [mousePosition, setMousePosition] = useState({
       x: 0,
       y: 0,
     })
@@ -26,33 +26,33 @@ const withMousePosition = (WrappedComponent) => {
     }, []);
 
     return (
-      <WrappedComponent {...props} mousePositioin={mousePositioin} />
+      <WrappedComponent {...props} mousePosition={mousePosition} />
     )
   }
 }
 
-const PanelMouseLogger = ({ mousePositioin }) => {
-  if (!mousePositioin) {
+const PanelMouseLogger = ({ mousePosition }) => {
+  if (!mousePosition) {
     return null;
   }
   return (
     <div className="BasicTracker">
       <p>Mouse Position :</p>
       <div className="Row">
-        <span>x: {mousePositioin.x}</span>
-        <span>y: {mousePositioin.y}</span>
+        <span>x: {mousePosition.x}</span>
+        <span>y: {mousePosition.y}</span>
       </div>
     </div>
   );
 };
 
-const PointMouseLogger = ({ mousePositioin }) => {
-  if (!mousePositioin) {
+const PointMouseLogger = ({ mousePosition }) => {
+  if (!mousePosition) {
     return null;
   }
   return (
     <p>
-      ({mousePositioin.x}, {mousePositioin.y})
+      ({mousePosition.x}, {mousePosition.y})
     </p>
   );
 };
