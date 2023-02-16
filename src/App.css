@@ -7,6 +7,14 @@
   pointer-events: none;
 }
 
+fieldset {
+  width: 500px;
+}
+
+.Field {
+  margin: 10px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
